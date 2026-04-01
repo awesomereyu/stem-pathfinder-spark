@@ -1,5 +1,9 @@
 import { type Career } from "@/data/careers";
-import { BarChart3, HeartPulse, Shield, Leaf, Bot, Rocket } from "lucide-react";
+import {
+  BarChart3, HeartPulse, Shield, Leaf, Bot, Rocket,
+  Code, Building2, Pill, Fish, Brain, Zap, Palette,
+  FlaskConical, Gamepad2, Network,
+} from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
   BarChart3: <BarChart3 className="w-6 h-6" />,
@@ -8,6 +12,16 @@ const iconMap: Record<string, React.ReactNode> = {
   Leaf: <Leaf className="w-6 h-6" />,
   Bot: <Bot className="w-6 h-6" />,
   Rocket: <Rocket className="w-6 h-6" />,
+  Code: <Code className="w-6 h-6" />,
+  Building2: <Building2 className="w-6 h-6" />,
+  Pill: <Pill className="w-6 h-6" />,
+  Fish: <Fish className="w-6 h-6" />,
+  Brain: <Brain className="w-6 h-6" />,
+  Zap: <Zap className="w-6 h-6" />,
+  Palette: <Palette className="w-6 h-6" />,
+  FlaskConical: <FlaskConical className="w-6 h-6" />,
+  Gamepad2: <Gamepad2 className="w-6 h-6" />,
+  Network: <Network className="w-6 h-6" />,
 };
 
 interface CareerCardProps {
@@ -24,7 +38,7 @@ const CareerCard = ({ career, percentage, rank, onClick }: CareerCardProps) => {
       className="w-full text-left p-6 rounded-2xl border border-border bg-card shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group"
     >
       <div className="flex items-start justify-between mb-4">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-${career.colorKey}/10 text-${career.colorKey}`}>
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10 text-primary">
           {iconMap[career.icon]}
         </div>
         <div className="flex items-center gap-2">
