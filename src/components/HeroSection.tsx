@@ -39,7 +39,7 @@ const HeroSection = ({ onStartQuiz }: HeroSectionProps) => {
 
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
           {[
-            { num: "6+", label: "STEM Careers" },
+            { num: "16", label: "STEM Careers" },
             { num: "6", label: "Quiz Questions" },
             { num: "∞", label: "Possibilities" },
           ].map((stat) => (

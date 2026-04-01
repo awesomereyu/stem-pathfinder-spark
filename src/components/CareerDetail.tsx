@@ -1,20 +1,11 @@
 import { type Career, careers } from "@/data/careers";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowLeft,
-  BookOpen,
-  Briefcase,
-  ExternalLink,
-  GraduationCap,
-  Lightbulb,
-  TrendingUp,
-  DollarSign,
-  BarChart3,
-  HeartPulse,
-  Shield,
-  Leaf,
-  Bot,
-  Rocket,
+  ArrowLeft, BookOpen, Briefcase, ExternalLink, GraduationCap,
+  Lightbulb, TrendingUp, DollarSign,
+  BarChart3, HeartPulse, Shield, Leaf, Bot, Rocket,
+  Code, Building2, Pill, Fish, Brain, Zap, Palette,
+  FlaskConical, Gamepad2, Network,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -24,6 +15,16 @@ const iconMap: Record<string, React.ReactNode> = {
   Leaf: <Leaf className="w-8 h-8" />,
   Bot: <Bot className="w-8 h-8" />,
   Rocket: <Rocket className="w-8 h-8" />,
+  Code: <Code className="w-8 h-8" />,
+  Building2: <Building2 className="w-8 h-8" />,
+  Pill: <Pill className="w-8 h-8" />,
+  Fish: <Fish className="w-8 h-8" />,
+  Brain: <Brain className="w-8 h-8" />,
+  Zap: <Zap className="w-8 h-8" />,
+  Palette: <Palette className="w-8 h-8" />,
+  FlaskConical: <FlaskConical className="w-8 h-8" />,
+  Gamepad2: <Gamepad2 className="w-8 h-8" />,
+  Network: <Network className="w-8 h-8" />,
 };
 
 interface CareerDetailProps {
@@ -32,28 +33,17 @@ interface CareerDetailProps {
 }
 
 const RoadmapStep = ({
-  step,
-  title,
-  items,
-  icon,
-  isLast,
+  step, title, items, icon, isLast,
 }: {
-  step: number;
-  title: string;
-  items: string[];
-  icon: React.ReactNode;
-  isLast?: boolean;
+  step: number; title: string; items: string[]; icon: React.ReactNode; isLast?: boolean;
 }) => (
   <div className="flex gap-4 animate-slide-in" style={{ animationDelay: `${step * 0.15}s` }}>
-    {/* Timeline line */}
     <div className="flex flex-col items-center">
       <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center flex-shrink-0 text-primary-foreground">
         {icon}
       </div>
       {!isLast && <div className="w-0.5 flex-1 bg-border my-2" />}
     </div>
-
-    {/* Content */}
     <div className="pb-8">
       <h3 className="text-lg font-bold font-heading text-foreground mb-2">{title}</h3>
       <ul className="space-y-1.5">
@@ -75,7 +65,6 @@ const CareerDetail = ({ careerId, onBack }: CareerDetailProps) => {
   return (
     <section className="min-h-screen bg-background py-16 px-6">
       <div className="container mx-auto max-w-4xl">
-        {/* Header */}
         <Button variant="ghost" onClick={onBack} className="mb-8">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Results
@@ -83,7 +72,7 @@ const CareerDetail = ({ careerId, onBack }: CareerDetailProps) => {
 
         <div className="animate-fade-in">
           <div className="flex items-center gap-4 mb-6">
-            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center gradient-primary text-primary-foreground`}>
+            <div className="w-16 h-16 rounded-2xl flex items-center justify-center gradient-primary text-primary-foreground">
               {iconMap[career.icon]}
             </div>
             <div>
@@ -108,48 +97,20 @@ const CareerDetail = ({ careerId, onBack }: CareerDetailProps) => {
           </p>
         </div>
 
-        {/* Roadmap */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold font-heading text-foreground mb-6 flex items-center gap-2">
             <span className="text-gradient">Your Pathway Roadmap</span>
           </h2>
 
           <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-card">
-            <RoadmapStep
-              step={0}
-              title="🎓 High School Preparation"
-              items={career.highSchoolPrep}
-              icon={<BookOpen className="w-5 h-5" />}
-            />
-            <RoadmapStep
-              step={1}
-              title="🏆 Extracurricular Activities"
-              items={career.extracurriculars}
-              icon={<Lightbulb className="w-5 h-5" />}
-            />
-            <RoadmapStep
-              step={2}
-              title="🛠 Professional Skills to Develop"
-              items={career.professionalSkills}
-              icon={<GraduationCap className="w-5 h-5" />}
-            />
-            <RoadmapStep
-              step={3}
-              title="🎯 Post-Secondary Education"
-              items={career.educationLinks.map((l) => l.label)}
-              icon={<GraduationCap className="w-5 h-5" />}
-            />
-            <RoadmapStep
-              step={4}
-              title="💼 Entry-Level Positions"
-              items={career.entryLevelJobs}
-              icon={<Briefcase className="w-5 h-5" />}
-              isLast
-            />
+            <RoadmapStep step={0} title="🎓 High School Preparation" items={career.highSchoolPrep} icon={<BookOpen className="w-5 h-5" />} />
+            <RoadmapStep step={1} title="🏆 Extracurricular Activities" items={career.extracurriculars} icon={<Lightbulb className="w-5 h-5" />} />
+            <RoadmapStep step={2} title="🛠 Professional Skills to Develop" items={career.professionalSkills} icon={<GraduationCap className="w-5 h-5" />} />
+            <RoadmapStep step={3} title="🎯 Post-Secondary Education" items={career.educationLinks.map((l) => l.label)} icon={<GraduationCap className="w-5 h-5" />} />
+            <RoadmapStep step={4} title="💼 Entry-Level Positions" items={career.entryLevelJobs} icon={<Briefcase className="w-5 h-5" />} isLast />
           </div>
         </div>
 
-        {/* Education links */}
         <div>
           <h2 className="text-2xl font-bold font-heading text-foreground mb-4">
             📚 Education & Certification Links
